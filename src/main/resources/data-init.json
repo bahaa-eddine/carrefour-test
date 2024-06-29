@@ -1,0 +1,50 @@
+[
+  {
+    "deliveryMethod": "DRIVE",
+    "startTime": "2024-07-01T09:00:00",
+    "endTime": "2024-07-01T10:00:00",
+    "booked": false
+  },
+  {
+    "deliveryMethod": "DRIVE",
+    "startTime": "2024-07-01T10:00:00",
+    "endTime": "2024-07-01T11:00:00",
+    "booked": false
+  },
+  {
+    "deliveryMethod": "DELIVERY",
+    "startTime": "2024-07-01T09:00:00",
+    "endTime": "2024-07-01T10:00:00",
+    "booked": false
+  },
+  {
+    "deliveryMethod": "DELIVERY",
+    "startTime": "2024-07-01T10:00:00",
+    "endTime": "2024-07-01T11:00:00",
+    "booked": false
+  },
+  {
+    "deliveryMethod": "DELIVERY_TODAY",
+    "startTime": "2024-07-01T09:00:00",
+    "endTime": "2024-07-01T10:00:00",
+    "booked": false
+  },
+  {
+    "deliveryMethod": "DELIVERY_TODAY",
+    "startTime": "2024-07-01T10:00:00",
+    "endTime": "2024-07-01T11:00:00",
+    "booked": false
+  },
+  {
+    "deliveryMethod": "DELIVERY_ASAP",
+    "startTime": "2024-07-01T09:00:00",
+    "endTime": "2024-07-01T10:00:00",
+    "booked": false
+  },
+  {
+    "deliveryMethod": "DELIVERY_ASAP",
+    "startTime": "2024-07-01T10:00:00",
+    "endTime": "2024-07-01T11:00:00",
+    "booked": false
+  }
+]

@@ -1,0 +1,47 @@
+image: gradle:7.2-jdk21
+
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+cache:
+  key: "$CI_COMMIT_REF_SLUG"
+  paths:
+    - .gradle/wrapper
+    - .gradle/caches
+
+before_script:
+  - export GRADLE_USER_HOME=$(pwd)/.gradle
+
+build:
+  stage: build
+  script:
+    - ./gradlew build --no-daemon
+
+test:
+  stage: test
+  script:
+    - ./gradlew test --no-daemon
+  artifacts:
+    reports:
+      junit: build/test-results/test/*.xml
+    paths:
+      - build/reports/
+      - build/test-results/
+
+deploy:
+  stage: deploy
+  image: docker:24.0.2
+  services:
+    - docker:dind
+  before_script:
+    - docker info
+  script:
+    - cd docker
+    - docker-compose -f docker-compose.prod.yml up -d
+  only:
+    - main

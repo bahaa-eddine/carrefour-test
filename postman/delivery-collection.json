@@ -1,0 +1,94 @@
+{
+  "info": {
+    "name": "Delivery API",
+    "description": "Postman collection for DeliveryController endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Available Time Slots",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/delivery/time-slots?deliveryMethod={{deliveryMethod}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "delivery", "time-slots"],
+          "query": [
+            {
+              "key": "deliveryMethod",
+              "value": "PICKUP",
+              "description": "(e.g., PICKUP, HOME_DELIVERY)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Book Time Slot",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"timeSlotId\": 1\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/delivery/time-slots/book",
+          "host": ["{{base_url}}"],
+          "path": ["api", "delivery", "time-slots", "book"]
+        }
+      }
+    },
+    {
+      "name": "Get Delivery Methods",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/delivery/methods",
+          "host": ["{{base_url}}"],
+          "path": ["api", "delivery", "methods"]
+        }
+      }
+    },
+    {
+      "name": "Cancel Booking",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/delivery/time-slots/cancel?bookingId={{bookingId}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "delivery", "time-slots", "cancel"],
+          "query": [
+            {
+              "key": "bookingId",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

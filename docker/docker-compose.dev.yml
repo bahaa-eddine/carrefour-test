@@ -1,0 +1,17 @@
+version: '3.8'
+
+networks:
+  delivery-network:
+
+services:
+  delivery-app:
+    build:
+      context: ..
+      dockerfile: docker/dockerfile
+    container_name: delivery_service_app
+    ports:
+      - "9090:9090"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    networks:
+      - delivery-network
